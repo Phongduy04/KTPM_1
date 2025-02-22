@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 using namespace std;
 
 
@@ -29,7 +29,12 @@ void checkPrime() {
         cout << number << " khong phai la so nguyen to." << endl;
     }
 }
-
+bool isLeapYear(int year) {
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+        return true; 
+    }
+    return false;
+}
 
 void showMenu() {
     int choice;
@@ -47,8 +52,20 @@ void showMenu() {
             checkPrime();  
             break;
         case 2:
-             
+        {
+            int year;
+            cout << "Nhập một năm: ";
+            cin >> year;
+
+            if (isLeapYear(year)) {
+                cout << year << " là năm nhuận.\n";
+            }
+            else {
+                cout << year << " không phải là năm nhuận.\n";
+            }
             break;
+        }
+
         case 3:
             cout << "Thoat chuong trinh.\n";
             return;  
